@@ -1,23 +1,23 @@
 $(document).ready(() => {
 
     SDK.User.loadNav();
-const $listAllUsers = $("#listAllUsers");
+const $listAllEvents = $("#listAllEvents");
 
 SDK.Book.findAllEvents((err, events) => {
     events.forEach((event) => {
 
-    $listAllUsers.append(`  
+    $listAllEvents.append(`  
             <div class="row">
             <div class="col-lg-6">
             <div class="page-header">
                 <table>
                     <tr>
-                        <td>${event.email}</td>
-                        <td>${event.firstName}</td>
-                        <td>${event.lastName}</td>
-                        <td>${event.gender}</td>
-                        <td>${event.major}</td>
-                        <td>${event.semester}</td>
+                        <td>${event.id}</td>
+                        <td>${event.title}</td>
+                        <td>${event.created}</td>
+                        <td>${event.owner}</td>
+                        <td>${event.startDate}</td>
+                        <td>${event.endDate}</td>
                         <td>${event.description}</td>
                     </tr>
                 </table>
@@ -27,4 +27,8 @@ SDK.Book.findAllEvents((err, events) => {
 });
 
 });
+    $("#create-button").click(() => {
+                window.location.href = "createEvent.html";
+
+    });
 });

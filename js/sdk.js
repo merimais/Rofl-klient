@@ -81,6 +81,20 @@ Book: {
             method: "POST",
             url: "/users",
         }, cb);
+    },
+
+    createEvent: (owner_id, title, startDate, endDate, description, cb) => {
+        SDK.request({
+            data: {
+                owner_id: owner_id,
+                title: title,
+                startDate: startDate,
+                endDate: endDate,
+                description: description
+            },
+            method: "POST",
+            url: "/events",
+        }, cb);
     }
 },
 
@@ -115,6 +129,15 @@ User: {
     current: () => {
         return SDK.Storage.load("user");
     },
+
+    findAllEvents: (id,title,created, owner, startDate, endDate,description, cb) => {
+        SDK.request({method: "GET", url: "/events"}, cb);
+    },
+    current: () => {
+        return SDK.Storage.load("event");
+    },
+
+
     logOut: () => {
         SDK.Storage.remove("tokenId");
         SDK.Storage.remove("userId");

@@ -1,6 +1,7 @@
 $(document).ready(() => {
 
     SDK.User.loadNav();
+
 const $listAllUsers = $("#listAllUsers");
 
 SDK.Book.findAllUsers((err, users) => {
