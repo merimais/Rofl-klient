@@ -12,7 +12,6 @@ SDK.Book.findAllEvents((err, events) => {
             <div class="page-header">
                 <table>
                     <tr>
-                        <td>${event.id}</td>
                         <td>${event.title}</td>
                         <td>${event.created}</td>
                         <td>${event.startDate}</td>

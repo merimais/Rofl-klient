@@ -8,9 +8,11 @@
 <style>
     table {
         font-family: "Helvetica Neue";
-        width: 1140px;
         background-color: ghostwhite;
         border-radius: 5px;
+        width: 1140px;
+        height: 100%;
+        table-layout: fixed;
     }
 
     td, th {
@@ -35,7 +37,6 @@
                 <button style= "margin-bottom: 30px" class="btn btn-default" id="create-button">Create Event</button>
                     <table>
                         <tr>
-                        <th>Id</th>
                         <th>Name of event</th>
                         <th>Created</th>
                         <th>Startdate</th>
@@ -44,8 +45,11 @@
                         </tr>
                     </table>
                 <div id="listAllEvents" style=" width: 1140px;">
-                <div id="load-test"></div>
             </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
             <footer class="footer">
