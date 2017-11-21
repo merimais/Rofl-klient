@@ -83,7 +83,7 @@ Book: {
         }, cb);
     },
 
-    createEvent: (owner_id, title, startDate, endDate, description, cb) => {
+    createEvent: (owner_id, title, created, startDate, endDate, description, cb) => {
         SDK.request({
             data: {
                 owner_id: owner_id,
@@ -130,7 +130,7 @@ User: {
         return SDK.Storage.load("user");
     },
 
-    findAllEvents: (id,title,created, owner, startDate, endDate,description, cb) => {
+    findAllEvents: (id,title,created, startDate, endDate,description, cb) => {
         SDK.request({method: "GET", url: "/events"}, cb);
     },
     current: () => {

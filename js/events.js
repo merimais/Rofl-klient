@@ -15,7 +15,6 @@ SDK.Book.findAllEvents((err, events) => {
                         <td>${event.id}</td>
                         <td>${event.title}</td>
                         <td>${event.created}</td>
-                        <td>${event.owner}</td>
                         <td>${event.startDate}</td>
                         <td>${event.endDate}</td>
                         <td>${event.description}</td>
