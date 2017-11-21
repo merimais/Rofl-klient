@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
+<style>
+    table {
+        font-family: "Helvetica Neue";
+        width: 1140px;
+        background-color: ghostwhite;
+        border-radius: 5px;
+    }
+
+    td, th {
+        text-align: center;
+        padding: 15px;
+    }
+</style>
+
+    <meta charset="UTF-8">
+    <title>Events</title>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row" id="nav-container"></div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="page-header">
+                <h1>Upcoming events</h1>
+                    <table>
+                        <tr>
+                        <th>Id</th>
+                        <th>Name of event</th>
+                        <th>Created</th>
+                        <th>Created by</th>
+                        <th>Startdate</th>
+                        <th>Enddate</th>
+                        <th>Description</th>
+                        </tr>
+                    </table>
+                <div id="load-test"></div>
+            </div>
+
+
+            <footer class="footer">
+                <div class="container">
+                    <p class="text-muted">2017 © All rights reserved - Café Nexus</p>
+                </div>
+            </footer>
+
+            <script src="lib/js/jquery-3.2.1.js"></script>
+            <script src="lib/js/bootstrap.js"></script>
+            <script src="js/sdk.js"></script>
+            <script>
+                SDK.User.loadNav();
+            </script>
+
+</body>
+</html>
