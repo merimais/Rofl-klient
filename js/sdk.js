@@ -90,6 +90,18 @@ Book: {
         }, cb);
     },
 
+    createPost: (id, content, event, cb) => {
+        SDK.request({
+            data: {
+                id: id,
+                content: content,
+                event: event
+            },
+            method: "POST",
+            url: "/posts",
+        }, cb);
+    },
+
     createEvent: (owner_id, title, startDate, endDate, description, cb) => {
         SDK.request({
             data: {

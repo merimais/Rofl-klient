@@ -7,40 +7,39 @@ $(document).ready(() => {
     SDK.Book.findAllPosts((err, posts) => {
         posts.forEach((post) => {
 
-            $listAllPosts.append(`
-            <div class="modal fade" id="purchase-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog " role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Your basket</h4>
+            const postHtml = `
+            <div class="col-lg-4 book-container">
+            <div class="panel panel-default">
+             <div class="panel-heading">
+            <h3 class="panel-title">${post.owner_id}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-lg-8">
+                <dl>
+                    <dt>Created</dt>
+                    <dd>${post.created}</dd>
+                    <dt>Content</dt>
+                    <dd>${post.content}</dd>
+                </dl>
             </div>
-            <div class="modal-body">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Title</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Total</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div> `
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-lg-8 text-right">
+                    <button class="btn btn-success purchase-button">Create comment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`;
+            $listAllPosts.append(postHtml);
 
-            );
+        });
 
-            $("#create-button").click(() => {
-                window.location.href = "createPost.html";
+        $("#create-button").click(() => {
+            window.location.href = "createPost.html";
 
-            });
+        });
 
     });
-
-});
-
 });
