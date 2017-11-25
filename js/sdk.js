@@ -66,6 +66,13 @@ Book: {
         }, cb);
     },
 
+    findAllPosts: (cb) => {
+        SDK.request({
+            method: "GET",
+            url: "/posts",
+        }, cb);
+    },
+
     createUser: (password, firstName, lastName, email, description, gender, major, semester, cb) => {
         SDK.request({
             data: {

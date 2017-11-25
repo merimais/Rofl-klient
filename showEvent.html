@@ -37,12 +37,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <a href="checkout.html">
-                    <button type="button" class="btn btn-success">Proceed to checkout</button>
-                </a>
+                <div id="listAllPosts" style=" width: 1140px;">
             </div>
         </div>
     </div>
+</div>
 </div>
 
 
@@ -51,6 +50,7 @@
     <div class="page-header">
         <h1>Event</h1>
     </div>
+    <button style= "margin-bottom: 30px" class="btn btn-default" id="create-button">Create Post</button>
     <div class="row">
     </div>
 </div>
@@ -65,6 +65,9 @@
 <script src="lib/js/bootstrap.js"></script>
 <script src="js/sdk.js"></script>
 <script src="js/showEvent.js"></script>
+<script>
+    SDK.User.loadNav();
+</script>
 
 </body>
 </html>
