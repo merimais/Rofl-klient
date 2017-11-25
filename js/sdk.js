@@ -90,10 +90,10 @@ Book: {
         }, cb);
     },
 
-    createPost: (id, content, event, cb) => {
+    createPost: (owner_id, content, event, cb) => {
         SDK.request({
             data: {
-                id: id,
+                owner_id: owner_id,
                 content: content,
                 event: event
             },
@@ -152,10 +152,10 @@ User: {
     findAllEvents: (id,title,created, startDate, endDate,description, cb) => {
         SDK.request({method: "GET", url: "/events"}, cb);
     },
-    current: () => {
-        return SDK.Storage.load("event");
-    },
 
+    findEvent: (cb) => {
+        SDK.request({method: "GET", url:"/events/" + SDK.Storage.load("event-id")}, cb)
+    },
 
     logOut: () => {
         SDK.Storage.remove("tokenId");

@@ -4,22 +4,26 @@ $(document).ready(() => {
 
     const $listAllPosts = $("#listAllPosts");
 
-    SDK.Book.findAllPosts((err, posts) => {
-        posts.forEach((post) => {
+    SDK.User.findEvent((err, event) => {
+
+        const eventPosts = event.posts;
+
+        eventPosts.forEach((eventPosts) => {
 
             const postHtml = `
             <div class="col-lg-4 book-container">
             <div class="panel panel-default">
              <div class="panel-heading">
-            <h3 class="panel-title">${post.owner_id}</h3>
+            <h3 class="panel-title"></h3>
+            <h3 class="panel-title">${eventPosts.owner_id}</h3>
         </div>
         <div class="panel-body">
             <div class="col-lg-8">
                 <dl>
                     <dt>Created</dt>
-                    <dd>${post.created}</dd>
+                    <dd>${eventPosts.created}</dd>
                     <dt>Content</dt>
-                    <dd>${post.content}</dd>
+                    <dd>${eventPosts.content}</dd>
                 </dl>
             </div>
         </div>
@@ -35,11 +39,12 @@ $(document).ready(() => {
             $listAllPosts.append(postHtml);
 
         });
+    });
 
         $("#create-button").click(() => {
             window.location.href = "createPost.html";
 
         });
 
-    });
+
 });
