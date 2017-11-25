@@ -1,10 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
     <meta charset="UTF-8">
-    <title>Title</title>
+
+    <title>Create Post</title>
 </head>
 <body>
+
+<div class="container">
+    <div class="row" id="nav-container"></div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="page-header">
+                <h1>To create an event, fill out the following information:</h1>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputTitle">Title</label>
+                <input type="title" class="form-control" id="inputTitle" placeholder="Title">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="inputStartDate">Startdate</label>
+                <input type="yyyy-mm-dd hh:mm:ss" class="form-control" id="inputStartDate" placeholder="Startdate: yyyy-mm-dd hh:mm:ss ">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="inputEndDate">Enddate</label>
+                <input type="yyyy-mm-dd hh:mm:ss" class="form-control" id="inputEndDate" placeholder="Enddate: yyyy-mm-dd hh:mm:ss">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="inputDescription">Description</label>
+                <input type="description" class="form-control" id="inputDescription" placeholder="Description">
+                <button style="margin-top: 30px" class="btn btn-default" id="create-button">Create Event</button>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">2017 © All rights reserved - Café Nexus.</p>
+    </div>
+</footer>
+
+<script src="lib/js/jquery-3.2.1.js"></script>
+<script src="lib/js/bootstrap.js"></script>
+<script src="js/sdk.js"></script>
+<script src="js/createPost.js"></script>
 
 </body>
 </html>
