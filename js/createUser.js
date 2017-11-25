@@ -12,7 +12,7 @@ const major = $("#inputMajor").val();
 const semester = $("#inputSemester").val();
 const password = $("#inputPassword").val();
 
-SDK.Book.createUser(password, firstName, lastName, email, description, gender, major, semester, (err, data)=> {
+SDK.User.createUser(password, firstName, lastName, email, description, gender, major, semester, (err, data)=> {
     if (err && err.xhr.status === 401) {
     $(".form-group").addClass("has-error");
 } else {

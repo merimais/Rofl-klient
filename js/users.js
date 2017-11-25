@@ -4,7 +4,7 @@ $(document).ready(() => {
 
 const $listAllUsers = $("#listAllUsers");
 
-SDK.Book.findAllUsers((err, users) => {
+SDK.User.findAllUsers((err, users) => {
     users.forEach((user) => {
 
     $listAllUsers.append(`  

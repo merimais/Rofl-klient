@@ -5,8 +5,9 @@ $(document).ready(() => {
     $("#create-button").click(() => {
 
         const content = $("#inputContent").val();
+        const owner_id = 1;
 
-        SDK.Book.createPost(owner_id, content, event, (err, data)=> {
+        SDK.Post.createPost(owner_id, content, event, (err, data)=> {
             if (err && err.xhr.status === 401) {
                 $(".form-group").addClass("has-error");
             } else {

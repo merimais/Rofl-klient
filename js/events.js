@@ -3,7 +3,7 @@ $(document).ready(() => {
     SDK.User.loadNav();
 const $listAllEvents = $("#listAllEvents");
 
-SDK.Book.findAllEvents((err, events) => {
+SDK.Event.findAllEvents((err, events) => {
     events.forEach((event) => {
 
         const eventsHtml =`

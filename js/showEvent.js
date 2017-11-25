@@ -4,7 +4,7 @@ $(document).ready(() => {
 
     const $listAllPosts = $("#listAllPosts");
 
-    SDK.User.findEvent((err, event) => {
+    SDK.Event.findEvent((err, event) => {
 
         const eventPosts = event.posts;
 
