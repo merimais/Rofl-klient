@@ -14,7 +14,7 @@ $(document).ready(() => {
             <div class="col-lg-4 book-container">
             <div class="panel panel-default">
              <div class="panel-heading">
-            <h3 class="panel-title"></h3>
+            <h3 class="panel-title">User:</h3>
             <h3 class="panel-title">${eventPosts.owner.id}</h3>
         </div>
         <div class="panel-body">
@@ -30,7 +30,7 @@ $(document).ready(() => {
         <div class="panel-footer">
             <div class="row">
                 <div class="col-lg-8 text-right">
-                    <button class="btn btn-success purchase-button">Create comment</button>
+                    <button class="btn btn-default create-button">Create comment</button>
                 </div>
             </div>
         </div>
@@ -39,12 +39,11 @@ $(document).ready(() => {
             $listAllPosts.append(postHtml);
 
         });
-    });
 
         $("#create-button").click(() => {
             window.location.href = "createPost.html";
 
         });
-
+    });
 
 });
