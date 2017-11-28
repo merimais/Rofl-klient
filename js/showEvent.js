@@ -11,6 +11,7 @@ $(document).ready(() => {
         eventPosts.forEach((eventPosts) => {
 
             const postHtml = `
+
             <div class="col-lg-4 book-container">
             <div class="panel panel-default">
              <div class="panel-heading">
@@ -24,6 +25,7 @@ $(document).ready(() => {
                     <dd>${eventPosts.created}</dd>
                     <dt>Content</dt>
                     <dd>${eventPosts.content}</dd>
+                    <dt>Comments</dt>
                 </dl>
             </div>
         </div>

@@ -6,8 +6,9 @@ $(document).ready(() => {
 
         const content = $("#inputContent").val();
         const owner_id = 1;
+        const event_id = 1;
 
-        SDK.Post.createPost(owner_id, content, event, (err, data)=> {
+        SDK.Post.createPost(owner_id, content, event_id, (err, data)=> {
             if (err && err.xhr.status === 401) {
                 $(".form-group").addClass("has-error");
             } else {

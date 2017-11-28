@@ -1,6 +1,7 @@
 $(document).ready(() => {
 
     SDK.User.loadNav();
+
 const $listAllEvents = $("#listAllEvents");
 
 SDK.Event.findAllEvents((err, events) => {

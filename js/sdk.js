@@ -65,12 +65,12 @@ const SDK = {
             }, cb);
         },
 
-        createPost: (owner_id, content, event, cb) => {
+        createPost: (owner_id, content, event_id, cb) => {
             SDK.request({
                 data: {
-                    owner_id: owner_id,
+                    owner: owner_id,
                     content: content,
-                    event: event
+                    event: event_id
                 },
                 method: "POST",
                 url: "/posts",
