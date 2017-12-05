@@ -40,6 +40,7 @@ const SDK = {
                 SDK.request({method: "GET", url: "/events/" + SDK.Storage.load("event-id")}, cb)
             },
 
+
             createEvent: (owner_id, title, startDate, endDate, description, cb) => {
                 SDK.request({
                     data: {
@@ -158,6 +159,33 @@ const SDK = {
 
         },
 
+    },
+
+    Comment: {
+
+        createComment: (owner_id, content, parent_id, cb) => {
+            SDK.request({
+                data: {
+                    owner: owner_id,
+                    content: content,
+                    parent: parent_id
+                },
+                method: "POST",
+                url: "/comments",
+            }, cb);
+        },
+
+        findAllComments: (cb) => {
+            SDK.request({
+                method: "GET",
+                url: "/comments",
+            }, cb);
+        },
+
+
+        findComment: (cb) => {
+            SDK.request({method: "GET", url: "/posts/" + SDK.Storage.load("comment-id")}, cb)
+        },
     },
 
 Storage: {
