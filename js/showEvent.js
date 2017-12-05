@@ -28,7 +28,6 @@ $(document).ready(() => {
                     <dd>${eventPost.created}</dd>
                     <dt>Content</dt>
                     <dd>${eventPost.content}</dd>
-                    <dt>Comments</dt>
                 </dl>
             </div>
         </div>
@@ -51,6 +50,8 @@ $(document).ready(() => {
 
                 SDK.Storage.persist("commentPostId", postId);
 
+                $("#comments-modal").modal("toggle");
+
                 console.log(eventPost.id);
 
             });
@@ -65,5 +66,30 @@ $(document).ready(() => {
 
     });
 
+    $("#comments-modal").on("shown.bs.modal", () => {
+
+        SDK.Comment.findAllComments((err, comments) => {
+            console.log(comments);
+            comments.comments.forEach((comment) => {
+
+
+                const $modalTbody = $("#modal-tbody");
+                $modalTbody.append(`
+
+        <dl>
+            <dt>Owner: ${comment.owner.id} </dt>
+            <td>${comment.content}</td>
+        </dl>
+      `);
+
+            });
+        });
+    });
+
+    $("#comments-modal").on("hidden.bs.modal", () => {
+
+        $("#modal-tbody").html("");
+
+    });
 
 });

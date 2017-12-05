@@ -178,7 +178,7 @@ const SDK = {
         findAllComments: (cb) => {
             SDK.request({
                 method: "GET",
-                url: "/comments",
+                url: "/posts/" + SDK.Storage.load("commentPostId"),
             }, cb);
         },
 
