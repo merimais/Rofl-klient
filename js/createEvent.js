@@ -3,7 +3,7 @@ $(document).ready(() => {
     SDK.User.loadNav();
 
     $("#create-button").click(() => {
-        const owner_id= 1;
+        const owner_id= SDK.Storage.load("userId");
         const title = $("#inputTitle").val();
         const startDate = $("#inputStartDate").val();
         const endDate = $("#inputEndDate").val();

@@ -13,6 +13,7 @@ SDK.User.findAllUsers((err, users) => {
             <div class="page-header">
                 <table>
                     <tr>
+                        <td>${user.id}</td>
                         <td>${user.email}</td>
                         <td>${user.firstName}</td>
                         <td>${user.lastName}</td>

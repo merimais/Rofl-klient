@@ -89,7 +89,7 @@ $(document).ready(() => {
 
     $("#addCommentButton").click(() => {
 
-        const owner_id = 1;
+        const owner_id = SDK.Storage.load("userId");
         const content = $("#inputComment").val();
         const parent_id = SDK.Storage.load("commentPostId");
 

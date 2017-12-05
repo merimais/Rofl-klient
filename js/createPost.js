@@ -5,8 +5,8 @@ $(document).ready(() => {
     $("#create-button").click(() => {
 
         const content = $("#inputContent").val();
-        const owner_id = 1;
-        const event_id = 1;
+        const owner_id = SDK.Storage.load("userId");;
+        const event_id = SDK.Storage.load("event-id");
 
         SDK.Post.createPost(owner_id, content, event_id, (err, data)=> {
             if (err && err.xhr.status === 401) {

@@ -115,11 +115,12 @@ const SDK = {
 
 
         logOut: () => {
-            SDK.Storage.remove("tokenId");
+            SDK.Storage.remove("token");
             SDK.Storage.remove("userId");
             SDK.Storage.remove("user");
             window.location.href = "../homepage.html";
         },
+
         login: (email, password, cb) => {
             SDK.request({
                 data: {
@@ -133,6 +134,15 @@ const SDK = {
                 //On login-error
                 if (err) return cb(err);
 
+                //https://stackoverflow.com/questions/38552003/how-to-decode-jwt-token-in-javascript
+                let token = data;
+
+                var base64Url = token.split('.')[0];
+                var base64 = base64Url.replace('-', '+').replace('_', '/');
+                console.log(JSON.parse(window.atob(base64)));
+
+                SDK.Storage.persist("userId", JSON.parse(window.atob(base64)).kid);
+
                 SDK.Storage.persist("token", data);
 
                 cb(null, data);
@@ -142,17 +152,11 @@ const SDK = {
 
         loadNav: (cb) => {
             $("#nav-container").load("nav.html", () => {
-                const currentUser = SDK.User.current();
-                if (currentUser) {
+
+
                     $(".navbar-right").html(`
-            <li><a href="my-page.html">Your orders</a></li>
-            <li><a href="#" id="logout-link">Logout</a></li>
+            <li><a href="homepage.html" id="logout-link">Logout</a></li>
           `);
-                } else {
-                    $(".navbar-right").html(`
-            <li><a href="login.html">Log-in <span class="sr-only">(current)</span></a></li>
-          `);
-                }
                 $("#logout-link").click(() => SDK.User.logOut());
                 cb && cb();
             });
@@ -189,7 +193,7 @@ const SDK = {
     },
 
 Storage: {
-    prefix: "BookStoreSDK",
+    prefix: "NexusSDK",
         persist
 :
     (key, value) => {

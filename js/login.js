@@ -13,7 +13,7 @@ SDK.User.login(email, password, (err, data) => {
 else if (err){
     console.log("Bad stuff happened")
 } else {
-    window.location.href = "homepage.html";
+    window.location.href = "users.html";
 }
 });
 
