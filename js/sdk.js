@@ -168,10 +168,10 @@ const SDK = {
                 data: {
                     owner: owner_id,
                     content: content,
-                    parent: parent_id
+                    parent: parent_id,
                 },
                 method: "POST",
-                url: "/comments",
+                url: "/posts"
             }, cb);
         },
 

@@ -87,6 +87,19 @@ $(document).ready(() => {
         });
     });
 
+    $("#addCommentButton").click(() => {
+
+        const owner_id = 1;
+        const content = $("#inputComment").val();
+        const parent_id = SDK.Storage.load("commentPostId");
+
+        SDK.Comment.createComment(owner_id, content, parent_id, (err, data) => {
+            $("#comments-modal").modal("toggle");
+            window.alert("Comment has been created")
+        });
+
+    });
+
     $("#comments-modal").on("hidden.bs.modal", () => {
 
         $("#modal-tbody").html("");
