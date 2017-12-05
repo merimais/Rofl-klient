@@ -79,6 +79,7 @@ $(document).ready(() => {
         <dl>
             <dt>Owner: ${comment.owner.id} </dt>
             <td>${comment.content}</td>
+            <dd>Created: ${comment.created}</dd>
         </dl>
       `);
 
