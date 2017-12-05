@@ -18,5 +18,9 @@ else if (err){
 });
 
 });
+    $("#goback-button").click(() => {
+        window.location.href = "homepage.html";
+
+    });
 
 });

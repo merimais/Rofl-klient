@@ -17,5 +17,9 @@ $(document).ready(() => {
         });
 
     });
+    $("#goback-button").click(() => {
+        window.location.href = "showEvent.html";
+
+    });
 
 });

@@ -20,5 +20,9 @@ SDK.User.createUser(password, firstName, lastName, email, description, gender, m
 });
 
 });
+    $("#goback-button").click(() => {
+        window.location.href = "homepage.html";
+
+    });
 
 });
