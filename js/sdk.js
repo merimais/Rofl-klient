@@ -32,12 +32,15 @@ const SDK = {
                 SDK.request({
                     method: "GET",
                     url: "/events",
+                    headers: {authorization: "Bearer" + SDK.Storage.load("token")}
                 }, cb);
             },
 
 
             findEvent: (cb) => {
-                SDK.request({method: "GET", url: "/events/" + SDK.Storage.load("event-id")}, cb)
+                SDK.request({method: "GET", url: "/events/" + SDK.Storage.load("event-id"),
+                    headers: {authorization: "Bearer" + SDK.Storage.load("token")}
+                    }, cb)
             },
 
 
@@ -63,6 +66,7 @@ const SDK = {
             SDK.request({
                 method: "GET",
                 url: "/posts",
+                headers: {authorization: "Bearer" + SDK.Storage.load("token")}
             }, cb);
         },
 
@@ -75,6 +79,7 @@ const SDK = {
                 },
                 method: "POST",
                 url: "/posts",
+                headers: {authorization: "Bearer" + SDK.Storage.load("token")}
             }, cb);
         },
 
@@ -99,9 +104,7 @@ const SDK = {
             }, cb);
         },
 
-        findAllUsers: (firstName, lastName, email, description, gender, major, semester, cb) => {
-            SDK.request({method: "GET", url: "/users"}, cb);
-        },
+
         current: () => {
             return SDK.Storage.load("user");
         },
@@ -110,6 +113,7 @@ const SDK = {
             SDK.request({
                 method: "GET",
                 url: "/users",
+                headers: { authorization: "Bearer " + SDK.Storage.load("token")}
             }, cb);
         },
 
@@ -175,7 +179,8 @@ const SDK = {
                     parent: parent_id,
                 },
                 method: "POST",
-                url: "/posts"
+                url: "/posts",
+                headers: {authorization: "Bearer" + SDK.Storage.load("token")}
             }, cb);
         },
 
@@ -183,12 +188,15 @@ const SDK = {
             SDK.request({
                 method: "GET",
                 url: "/posts/" + SDK.Storage.load("commentPostId"),
+                headers: {authorization: "Bearer" + SDK.Storage.load("token")}
             }, cb);
         },
 
 
         findComment: (cb) => {
-            SDK.request({method: "GET", url: "/posts/" + SDK.Storage.load("comment-id")}, cb)
+            SDK.request({method: "GET", url: "/posts/" + SDK.Storage.load("comment-id"),
+                headers: {authorization: "Bearer" + SDK.Storage.load("token")}
+                }, cb)
         },
     },
 
