@@ -1,4 +1,6 @@
 const SDK = {
+
+    //Reference: Code line 4 to 29 is taken from DISBookStore which has been given from lectures in Distribuerede Systemer
         serverURL: "http://localhost:8080/api",
         request: (options, cb) => {
 
@@ -26,6 +28,7 @@ const SDK = {
 
         },
 
+    //Creating SDK Event containing different methods.
         Event: {
 
             findAllEvents: (cb) => {
@@ -39,7 +42,7 @@ const SDK = {
 
             findEvent: (cb) => {
                 SDK.request({method: "GET", url: "/events/" + SDK.Storage.load("event-id"),
-                    headers: {authorization: "Bearer" + SDK.Storage.load("token")}
+                    headers: {authorization: "Bearer" + SDK.Storage.load("token")} //Loading tokens in header
                     }, cb)
             },
 
@@ -60,13 +63,14 @@ const SDK = {
 
         },
 
-    Post: {
+        //Creating SDK Post containing different methods.
+         Post: {
 
         findAllPosts: (cb) => {
             SDK.request({
                 method: "GET",
                 url: "/posts",
-                headers: {authorization: "Bearer" + SDK.Storage.load("token")}
+                headers: {authorization: "Bearer" + SDK.Storage.load("token")} //Loading tokens in headers
             }, cb);
         },
 
@@ -85,7 +89,8 @@ const SDK = {
 
     },
 
-    User: {
+        //Creating SDK User containing different methods.
+         User: {
 
         createUser: (password, firstName, lastName, email, description, gender, major, semester, cb) => {
             SDK.request({
@@ -135,6 +140,7 @@ const SDK = {
                 method: "POST"
             }, (err, data) => {
 
+                //Reference: Code line 144-161 is taken from DISBookStore which has been given from lectures in Distribuerede Systemer
                 //On login-error
                 if (err) return cb(err);
 
@@ -153,14 +159,12 @@ const SDK = {
 
             });
         },
-
-        loadNav: (cb) => {
-            $("#nav-container").load("nav.html", () => {
-
-
+             //Reference: Code line 163-174 is taken from DISBookStore which has been given from lectures in Distribuerede Systemer
+             loadNav: (cb) => {
+                $("#nav-container").load("nav.html", () => {
                     $(".navbar-right").html(`
-            <li><a href="homepage.html" id="logout-link">Logout</a></li>
-          `);
+                <li><a href="homepage.html" id="logout-link">Logout</a></li>
+                `);
                 $("#logout-link").click(() => SDK.User.logOut());
                 cb && cb();
             });
@@ -169,7 +173,8 @@ const SDK = {
 
     },
 
-    Comment: {
+        //Creating SDK Comment containing different methods.
+        Comment: {
 
         createComment: (owner_id, content, parent_id, cb) => {
             SDK.request({
@@ -180,7 +185,7 @@ const SDK = {
                 },
                 method: "POST",
                 url: "/posts",
-                headers: {authorization: "Bearer" + SDK.Storage.load("token")}
+                headers: {authorization: "Bearer" + SDK.Storage.load("token")} //Loading tokens in headers
             }, cb);
         },
 
@@ -188,27 +193,28 @@ const SDK = {
             SDK.request({
                 method: "GET",
                 url: "/posts/" + SDK.Storage.load("commentPostId"),
-                headers: {authorization: "Bearer" + SDK.Storage.load("token")}
+                headers: {authorization: "Bearer" + SDK.Storage.load("token")} //Loading tokens in headers
             }, cb);
         },
 
 
         findComment: (cb) => {
             SDK.request({method: "GET", url: "/posts/" + SDK.Storage.load("comment-id"),
-                headers: {authorization: "Bearer" + SDK.Storage.load("token")}
+                headers: {authorization: "Bearer" + SDK.Storage.load("token")} //Loading tokens in headers
                 }, cb)
         },
     },
 
-Storage: {
+    //Reference: Code line 163-174 is taken from DISBookStore which has been given from lectures in Distribuerede Systemer
+    Storage: {
     prefix: "NexusSDK",
         persist
-:
+    :
     (key, value) => {
         window.localStorage.setItem(SDK.Storage.prefix + key, (typeof value === 'object') ? JSON.stringify(value) : value)
     },
         load
-:
+    :
     (key) => {
         const val = window.localStorage.getItem(SDK.Storage.prefix + key);
         try {
@@ -219,10 +225,10 @@ Storage: {
         }
     },
         remove
-:
+    :
     (key) => {
         window.localStorage.removeItem(SDK.Storage.prefix + key);
     }
-}
-}
-;
+    }
+    }
+    ;

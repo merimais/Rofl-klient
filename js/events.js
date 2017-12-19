@@ -2,10 +2,12 @@ $(document).ready(() => {
 
     SDK.User.loadNav();
 
+//Creating constant of listing all events.
 const $listAllEvents = $("#listAllEvents");
 
-SDK.Event.findAllEvents((err, events) => {
-    events.forEach((event) => {
+//Getting method from SDK.
+SDK.Event.findAllEvents((err, events) => { //Getting method from SDK.
+    events.forEach((event) => { //for-each loop for checking and adding values to each event
 
         const eventsHtml =`
             <div class="row">
@@ -26,13 +28,13 @@ SDK.Event.findAllEvents((err, events) => {
 
 
 `;
-       $listAllEvents.append(eventsHtml);
+       $listAllEvents.append(eventsHtml); //Loading "list all events" into html page
 
 });
-
+//Adding click function to this-button.
         $(".this-button").click(function() {
-            const eventId = $(this).data("event-id");
-            const event = events.find((event)=> event.id === eventId);
+            const eventId = $(this).data("event-id"); //Creating constant of eventId
+            const event = events.find((event)=> event.id === eventId); //Find event by event Id
 
             SDK.Storage.persist("event-id", eventId);
 
@@ -41,6 +43,7 @@ SDK.Event.findAllEvents((err, events) => {
         });
 });
 
+//Adding click function to create-button. The button refers to html page.
     $("#create-button").click(() => {
                 window.location.href = "createEvent.html";
 
