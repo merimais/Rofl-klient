@@ -109,7 +109,7 @@ const SDK = {
             }, cb);
         },
 
-
+        //Getting specific user
         current: () => {
             return SDK.Storage.load("user");
         },
