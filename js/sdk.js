@@ -35,7 +35,7 @@ const SDK = {
                 SDK.request({
                     method: "GET",
                     url: "/events",
-                    headers: {authorization: "Bearer" + SDK.Storage.load("token")}
+                    headers: {authorization: "Bearer" + SDK.Storage.load("token")} //Loading tokens in headers
                 }, cb);
             },
 
